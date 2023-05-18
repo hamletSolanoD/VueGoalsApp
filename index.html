@@ -13,14 +13,36 @@
 
 <body>
     <header>
-        <h1>Vue Course Goals</h1>
+        <h1>Vue Counter</h1>
+    </header>
+    <section id="user-counter">
+        <button v-on:click="onAdd(5)">Add</button>
+        <button v-on:click="onReduce(5)">reduce</button>
+        <p>{{ counter }}</p>
+        <p v-once>primer valor: {{ counter }}</p>
+
+    </section>
+    <header>
+        <h1>Vue Goals List</h1>
     </header>
     <section id="user-goal">
-        <button v-on:click="onAdd()">Add</button>
-        <button v-on:click="onReduce()">reduce</button>
-        <p>{{ counter }}</p>
-
-
+        <input type="text" v-on:input="getGoal" />
+        <button v-on:click="addGoal">add</button>
+        <ul>
+            <li v-for="goal in goals" v-html="goal">
+            </li>
+        </ul>
+    </section>
+    <header>
+        <h1>User Chat</h1>
+    </header>
+    <section id="user-chat">
+        Usuario: <input type="text" v-on:input="setUserName" />
+        <br />
+        <textarea rows="4" cols="50">{{ textBox }}</textarea>
+        <br />
+        <input type="text" v-on:input="getText" v-on:keydown.enter="addText" />
+        <button v-on:click="addText">add</button>
     </section>
 </body>
 
