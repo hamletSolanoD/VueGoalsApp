@@ -16,8 +16,11 @@
         <h1>Vue Course Goals</h1>
     </header>
     <section id="user-goal">
-        <h2>My Course Goal</h2>
-        <p></p>
+        <button v-on:click="onAdd()">Add</button>
+        <button v-on:click="onReduce()">reduce</button>
+        <p>{{ counter }}</p>
+
+
     </section>
 </body>
 
