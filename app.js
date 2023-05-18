@@ -49,14 +49,13 @@ const userChat = Vue.createApp({
         };
     },
     methods: {
-        getText(event) {
-            this.newText = event.target.value;
-        },
-        setUserName(event) {
-            this.userName = event.target.value;
-        },
         addText() {
             this.textBox += this.userName + ":" + this.newText + "\n";
+            this.reset();
+        },
+        reset() {
+            this.newText = '';
+            this.userName = '';
         }
 
     }

@@ -37,11 +37,11 @@
         <h1>User Chat</h1>
     </header>
     <section id="user-chat">
-        Usuario: <input type="text" v-on:input="setUserName" />
+        Usuario: <input type="text" v-model="userName" />
         <br />
-        <textarea rows="4" cols="50">{{ textBox }}</textarea>
+        <textarea disabled rows="4" cols="50">{{ textBox }}</textarea>
         <br />
-        <input type="text" v-on:input="getText" v-on:keydown.enter="addText" />
+        <input type="text" v-model="newText" v-on:keydown.enter="addText" />
         <button v-on:click="addText">add</button>
     </section>
 </body>
