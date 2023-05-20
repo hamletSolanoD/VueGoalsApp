@@ -18,8 +18,11 @@
     <section id="user-counter">
         <button v-on:click="onAdd(5)">Add</button>
         <button v-on:click="onReduce(5)">reduce</button>
-        <p>{{ counter }}</p>
-        <p v-once>primer valor: {{ counter }}</p>
+        <p>{{ getCounter }}</p>
+        <p v-once>{{ counter }}</p>
+        <button v-on:click="onReduceOtro(5)">reduce</button>
+        <p>{{ counter2 }}</p>
+        <p v-once>{{ counter2 }}</p>
 
     </section>
     <header>
@@ -29,7 +32,7 @@
         <input type="text" v-on:input="getGoal" />
         <button v-on:click="addGoal">add</button>
         <ul>
-            <li v-for="goal in goals" v-html="goal">
+            <li :class="getClass(index)" v-for="(goal,index) in goals" v-html="goal.name" @click="setSelected(index)">
             </li>
         </ul>
     </section>
