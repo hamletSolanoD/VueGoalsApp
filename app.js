@@ -44,9 +44,25 @@ const app2 = Vue.createApp({
             console.log(!this.goals[index].selected);
 
         },
+        isColor(text) {
+            const colorPattern = /^#([0-9A-F]{3}){1,2}$/i; // Hexadecimal color pattern
+            const predefinedColors = [
+                'black', 'silver', 'gray', 'white', 'maroon', 'red', 'purple',
+                'fuchsia', 'green', 'lime', 'olive', 'yellow', 'navy', 'blue',
+                'teal', 'aqua'
+            ];
+
+
+            return colorPattern.test(text) || predefinedColors.includes(text.toLowerCase());;
+        },
         getClass(index) {
             goal = this.goals[index];
-            if (goal.selected) return {
+            if (this.isColor(goal.name))
+                return {
+                    backgroundColor: goal.name,
+                    borderColor: goal.name,
+                }
+            else if (goal.selected) return {
                 active: true,
                 inactive: false,
             }

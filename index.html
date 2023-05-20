@@ -32,7 +32,8 @@
         <input type="text" v-on:input="getGoal" />
         <button v-on:click="addGoal">add</button>
         <ul>
-            <li :class="getClass(index)" v-for="(goal,index) in goals" v-html="goal.name" @click="setSelected(index)">
+            <li :class="getClass(index)" :style="getClass(index)" v-for="(goal,index) in goals" v-html="goal.name"
+                @click="setSelected(index)">
             </li>
         </ul>
     </section>
